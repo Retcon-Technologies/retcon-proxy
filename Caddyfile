@@ -1,0 +1,15 @@
+{
+	# Disable automatic HTTPS — Cloudflare handles SSL termination
+	auto_https off
+	admin off
+}
+
+:80 {
+	handle /rag* {
+		reverse_proxy retcon-router.railway.internal:3402
+	}
+
+	handle {
+		reverse_proxy retcon-indexer.railway.internal:8000
+	}
+}
