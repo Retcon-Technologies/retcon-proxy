@@ -9,6 +9,14 @@
 		reverse_proxy retcon-router.railway.internal:3402
 	}
 
+	handle /profile* {
+		reverse_proxy retcon-router.railway.internal:3402
+	}
+
+	handle /import* {
+		reverse_proxy retcon-router.railway.internal:3402
+	}
+
 	handle {
 		reverse_proxy retcon-indexer.railway.internal:8000
 	}
